@@ -93,9 +93,16 @@ export type _CreateMenuProps = {
 	 * @default false
 	 */
 	forceVisible?: boolean;
+
+	/**
+	 * Disable the typeahead functionality
+	 *
+	 * @default false
+	 */
+	disableTypeahead?: boolean;
 };
 
-export type _CreateSubmenuProps = Pick<_CreateMenuProps, 'arrowSize' | 'positioning'> & {
+export type _CreateSubmenuProps = Pick<_CreateMenuProps, 'arrowSize' | 'positioning' | 'disableTypeahead'> & {
 	disabled?: boolean;
 };
 

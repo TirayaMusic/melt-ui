@@ -211,10 +211,12 @@ export function createContextMenu(props?: CreateContextMenuProps) {
 					/**
 					 * Check for typeahead search and handle it.
 					 */
-					const isCharacterKey = e.key.length === 1;
-					const isModifierKey = e.ctrlKey || e.altKey || e.metaKey;
-					if (!isModifierKey && isCharacterKey) {
-						handleTypeaheadSearch(e.key, getMenuItems(menuEl));
+					if (!withDefaults.disableTypeahead) {
+						const isCharacterKey = e.key.length === 1;
+						const isModifierKey = e.ctrlKey || e.altKey || e.metaKey;
+						if (!isModifierKey && isCharacterKey) {
+							handleTypeaheadSearch(e.key, getMenuItems(menuEl));
+						}
 					}
 				})
 			);
