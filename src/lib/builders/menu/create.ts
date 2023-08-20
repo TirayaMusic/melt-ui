@@ -265,7 +265,7 @@ export function createMenuBuilder(opts: _MenuBuilderOptions) {
 				addMeltEventListener(node, 'keydown', (e) => {
 					const triggerEl = e.currentTarget;
 					if (!isHTMLElement(triggerEl)) return;
-					if (!(SELECTION_KEYS.includes(e.key) || e.key === kbd.ARROW_DOWN)) return;
+					if (!(SELECTION_KEYS.includes(e.key))) return;
 					e.preventDefault();
 					handleOpen(triggerEl);
 

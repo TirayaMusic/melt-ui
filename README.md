@@ -19,6 +19,13 @@ Melt UI is meant to be used as a base for your own styles and components. It off
 - Easy to use examples and documentation
 - A high emphasis on accessibility, extensibility, quality and consistency
 
+## Tiraya fork
+
+This is a fork of MeltUI for the Tiraya frontend. These are the changes applied to it:
+
+- The ability to disable the typeahead functionality for menus
+- The arrow down key does not trigger the dropdown menu
+
 ## Getting started
 
 Install the `@melt-ui/svelte` package with your package manager of choice:
