@@ -163,7 +163,10 @@ export type _MenuBuilderOptions = {
 	 * rather than in the menu builder factory.
 	 */
 	removeScroll: boolean;
+	rootIds?: _RootIds;
 };
+
+export type _RootIds = {menu: string, trigger: string};
 
 export type _MenuParts =
 	| 'trigger'

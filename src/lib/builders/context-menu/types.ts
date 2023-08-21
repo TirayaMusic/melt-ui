@@ -28,3 +28,7 @@ export type ContextMenuRadioGroup = BuilderReturn<ContextMenuBuilders['createMen
 export type ContextMenuRadioGroupElements = ContextMenuRadioGroup['elements'];
 export type ContextMenuRadioGroupStates = ContextMenuRadioGroup['states'];
 export type ContextMenuRadioGroupHelpers = ContextMenuRadioGroup['helpers'];
+
+export type ContextMenuBuilderOpts = {
+	triggerId?: string;
+};

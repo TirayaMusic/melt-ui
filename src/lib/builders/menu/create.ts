@@ -130,7 +130,7 @@ export function createMenuBuilder(opts: _MenuBuilderOptions) {
 
 	const { typed, handleTypeaheadSearch } = createTypeaheadSearch();
 
-	const rootIds = {
+	const rootIds = opts.rootIds || {
 		menu: generateId(),
 		trigger: generateId(),
 	};
@@ -265,7 +265,7 @@ export function createMenuBuilder(opts: _MenuBuilderOptions) {
 				addMeltEventListener(node, 'keydown', (e) => {
 					const triggerEl = e.currentTarget;
 					if (!isHTMLElement(triggerEl)) return;
-					if (!(SELECTION_KEYS.includes(e.key))) return;
+					if (!SELECTION_KEYS.includes(e.key)) return;
 					e.preventDefault();
 					handleOpen(triggerEl);
 

@@ -8,6 +8,7 @@ import {
 	derivedWithUnsubscribe,
 	effect,
 	executeCallbacks,
+	generateId,
 	getNextFocusable,
 	getPortalDestination,
 	getPreviousFocusable,
@@ -35,7 +36,7 @@ import {
 	type Point,
 } from '../menu/index.js';
 import type { ContextMenuEvents } from './events.js';
-import type { CreateContextMenuProps } from './types.js';
+import type { ContextMenuBuilderOpts, CreateContextMenuProps } from './types.js';
 
 const defaults = {
 	arrowSize: 8,
@@ -54,7 +55,7 @@ const defaults = {
 
 const { name, selector } = createElHelpers<_MenuParts>('context-menu');
 
-export function createContextMenu(props?: CreateContextMenuProps) {
+export function createContextMenu(props?: CreateContextMenuProps, builderOpts?: ContextMenuBuilderOpts) {
 	const withDefaults = { ...defaults, ...props } satisfies CreateContextMenuProps;
 
 	const rootOptions = toWritableStores(withDefaults);
@@ -87,6 +88,10 @@ export function createContextMenu(props?: CreateContextMenuProps) {
 		disableTriggerRefocus: true,
 		selector: 'context-menu',
 		removeScroll: true,
+		rootIds: {
+			trigger: builderOpts?.triggerId || generateId(),
+			menu: generateId(),
+		}
 	});
 
 	const point = writable<Point | null>(null);
